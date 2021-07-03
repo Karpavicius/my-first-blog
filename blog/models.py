@@ -12,10 +12,10 @@ class Post(models.Model):
     published_date = models.DateTimeField(blank=True, null=True)
 
     def likes_count(self):
-		return PostLike.objects.filter(post=self).count()
+	return PostLike.objects.filter(post=self).count()
 
-	def dislikes_count(self):
-		return PostDislike.objects.filter(post=self).count()
+    def dislikes_count(self):
+	return PostDislike.objects.filter(post=self).count()
 
     def publish(self):
         self.published_date = timezone.now()
@@ -38,8 +38,8 @@ class Comment(models.Model):
     def __str__(self):
         return self.text
         
-	def approved_comments(self):
-   		return self.comments.filter(approved_comment=True)
+    def approved_comments(self):
+   	return self.comments.filter(approved_comment=True)
 
 class PostLike(models.Model):
 	user = models.ForeignKey(User, on_delete=models.CASCADE)
