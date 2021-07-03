@@ -4,7 +4,7 @@
     <article class="post">
         <aside class="actions">
         	<hr>
-				{{% for comment in post.comments.all %}
+				{% for comment in post.comments.all %}
     				{% if user.is_authenticated or comment.approved_comment %}
     				<div class="comment">
         				<div class="date">
@@ -17,7 +17,7 @@
         				<strong>{{ comment.author }}</strong>
         				<p>{{ comment.text|linebreaks }}</p>
     				</div>
-    				% endif %}
+    			    {% endif %}
 				{% empty %}
     				<p>No comments here yet :(</p>
 				{% endfor %}
